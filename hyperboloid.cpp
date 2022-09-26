@@ -79,15 +79,9 @@ int main() {
     G_fill_circle(xval, yval, 2);
   }
 
-  for(int i = 0; i < 6; ++i){
-    for(int j = 0; j <=6; ++j){
-      
-      G_rgb(1, 1, 1);
-	    G_clear();
+  for(int i = 0; i <= 6; ++i){
       G_rgb(0,0,0);
-      G_line(ux[i], uy[i], lx[j], ly[j]);
-      G_wait_key();
-    }
+      G_line(ux[i], uy[i], lx[i], ly[i]);
   }
   
 

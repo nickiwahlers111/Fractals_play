@@ -39,20 +39,21 @@ int main() {
   //get radius distance
   double radius = sqrt(pow(p[0] - q[0], 2) + pow(p[1] - q[1], 2));
   G_rgb(0,0,0);
-  theta = (360 / n) * (M_PI / 180);
+  // theta = (360 / n) * (M_PI / 180);
+  theta = 2*M_PI/n;
     
-  xval = (radius * cos(theta)) + p[0];
-  yval = (radius * sin(theta)) + p[1];
+  xval = (radius * cos(0)) + p[0];
+  yval = (radius * sin(0)) + p[1];
   
 
   double prev_x = xval;
   double prev_y = yval;
   
   for(int i =0; i <= n; ++i){
-    theta = ((360 / n) * i) * (M_PI / 180);
+    // theta = ((360 / n) * i) * (M_PI / 180);
     
-    xval = (radius * cos(theta)) + p[0];
-    yval = (radius * sin(theta)) + p[1];
+    xval = (radius * cos(i*theta)) + p[0];
+    yval = (radius * sin(i*theta)) + p[1];
 
     G_line(xval, yval, prev_x, prev_y);
     prev_x = xval;

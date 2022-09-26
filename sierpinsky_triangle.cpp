@@ -33,6 +33,22 @@ void babies(double a[], double b[], double c[], double n){
 
 }
 
+void sierpinksy(double x0, double y0, double x1, double y1, double x2, double y2, int depth){
+  if(depth == 0){
+    return;
+  }
+  double xa, ya,  xb, yb,  xc, yc;  
+  xa = (x0 + x1) / 2; ya = (y0 + y1) / 2; 
+  xb = (x1 + x2) / 2; yb = (y1+y2)/2;
+  xc = (x0+x2) /2; yb = (y0+y2) / 2;
+
+  G_fill_triangle(xa, ya, xb, yb, xc, yc);
+
+ sierpinksy(x0, y0, xa, ya, xc, yc, depth-1);
+  sierpinksy(xa, ya, x1, y1, xb, yb, depth-1);
+  sierpinksy(xc, yc, xb, yb, x2, y2, depth-1);
+}
+
 int main() {
 	int swidth, sheight;
   double n;
@@ -56,12 +72,14 @@ int main() {
   c[0] = 10;
   c[1] = 390;
   
-  G_fill_circle(a[0], a[1], 2);
-  G_fill_circle(b[0], b[1], 2);
-  G_fill_circle(c[0], c[1], 2);
-  G_triangle(a[0], a[1],  b[0], b[1],  c[0], c[1]);
+  // G_fill_circle(a[0], a[1], 2);
+  // G_fill_circle(b[0], b[1], 2);
+  // G_fill_circle(c[0], c[1], 2);
+  // G_triangle(a[0], a[1],  b[0], b[1],  c[0], c[1]);
 
-  babies(a,b,c, n);
+  // babies(a,b,c, n);
+
+  sierpinksy(a[0], a[1], b[0], b[1], c[0], c[1], n);
 
   
 	int key;
