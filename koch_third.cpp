@@ -4,16 +4,18 @@ double p[2], q[2];
 double t[2], z[2];
 int Wsize = 600;
 
-void koch(int depth, double p0[], double p1[]) {
-	if (depth == 0) {
+void koch(int depth, double p0[], double p1[])
+{
+	if (depth == 0)
+	{
 		G_line(p0[0], p0[1], p1[0], p1[1]);
 		return;
 	}
 
-	double dx = p1[0] - p0[0];  // x distance between original points
-	double dy = p1[1] - p0[1];  // y distance between original points
+	double dx = p1[0] - p0[0];	// x distance between original points
+	double dy = p1[1] - p0[1];	// y distance between original points
 	double t0[2], t1[2], t2[2]; // 1/3 and 2/3 and midpoint
-	double z[2];				// the top point
+	double z[2];								// the top point
 
 	double f = 0.5; // half
 
@@ -36,7 +38,8 @@ void koch(int depth, double p0[], double p1[]) {
 	koch(depth - 1, t1, p1);
 };
 
-void translate(double dx, double dy) {
+void translate(double dx, double dy)
+{
 	p[0] = p[0] + dx;
 	p[1] = p[1] + dy;
 
@@ -47,7 +50,8 @@ void translate(double dx, double dy) {
 	z[1] = z[1] + dy;
 }
 
-void rotate(double deg) {
+void rotate(double deg)
+{
 	double r, a;
 	double t = deg * (M_PI / 180);
 	double temp;
@@ -68,7 +72,8 @@ void rotate(double deg) {
 	z[0] = temp;
 }
 
-void scale(double s) {
+void scale(double s)
+{
 	p[0] *= s;
 	p[1] *= s;
 	q[0] *= s;
@@ -77,13 +82,16 @@ void scale(double s) {
 	z[1] *= s;
 }
 
-int main() {
+int main()
+{
 	G_init_graphics(Wsize, Wsize); // interactive graphics
 	G_rgb(0, 0, 0);
 	G_clear();
 
-	p[0] = 100; p[1] = 150;
-	q[0] = 500; q[1] = 150;
+	p[0] = 100;
+	p[1] = 150;
+	q[0] = 500;
+	q[1] = 150;
 
 	double dx = q[0] - p[0];
 	double dy = q[1] - p[1];
@@ -97,22 +105,24 @@ int main() {
 	G_rgb(0, 0, 0);
 	G_clear();
 
-	for (int i = 0; i < 100; ++i) {
-		translate(-Wsize / 2, -Wsize / 2);
-		scale(0.95);
-		rotate(2 * i);
-		translate(Wsize / 2, Wsize / 2);
+	// for (int i = 0; i < 100; ++i) {
+	// 	translate(-Wsize / 2, -Wsize / 2);
+	// 	scale(0.95);
+	// 	rotate(2 * i);
+	// 	translate(Wsize / 2, Wsize / 2);
 
-		G_rgb(0.53, 0.8, 0.98);
+	// 	G_rgb(0.53, 0.8, 0.98);
 
-		koch(5, q, p);
-		koch(5, z, q);
-		koch(5, p, z);
+	// 	koch(5, q, p);
+	// 	koch(5, z, q);
+	// 	koch(5, p, z);
 
-		G_wait_key();
-		G_rgb(0, 0, 0);
-		G_clear();
-	}
+	// 	G_wait_key();
+	// 	G_rgb(0, 0, 0);
+	// 	G_clear();
+	// }
+	G_rgb(0.53, 0.8, 0.98);
+	koch(3, p, q);
 
 	int key;
 	key = G_wait_key();
