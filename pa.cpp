@@ -22,20 +22,20 @@ int main() {
 	G_rgb(0, 0.5, 0.5);
   
   //UPPER RIGHT
-  j = 0;
-  for(int i = half; i < swidth; i = i + (swidth /(n+1))){
-    j = swidth -i/2;
-    G_line(half, i, j, half);
-  }
+  // j = 0;
+  // for(int i = half; i < swidth; i = i + (swidth /(n+1))){
+  //   j = swidth -i/2;
+  //   G_line(half, i, j, half);
+  // }
 
   //UPPER LEFT
 
   //BOTTOM LEFT
-  j = 0;
-  for(int i = half; i < swidth; i = i + (swidth /(n+1))){
-    j = swidth -i/2;
-    G_line(half, i, j, half);
-  }
+  // j = 0;
+  // for(int i = half; i < swidth; i = i + (swidth /(n+1))){
+  //   j = swidth -i/2;
+  //   G_line(half, i, j, half);
+  // }
   //BOTTOM RIGHT
   
 

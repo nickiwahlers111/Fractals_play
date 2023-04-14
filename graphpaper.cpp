@@ -17,14 +17,13 @@ int main() {
 	scanf("%d", &n);
 
 	G_rgb(0, 0.5, 0.5);
-	int j = 0;
-	// for(int i = 0; i < swidth; i=i+(swidth/(n+1))){
-	//   j = swidth - i;
-	//   G_line(0, i, j, 0);
-	//   G_line(i, 0, 0, j);
+
+	// for (int i = swidth / (n+1); i < swidth; i = i + (swidth /( n+1))) {
+	// 	G_line(i, 0, i, sheight); // vertical
+	// 	G_line(0, i, swidth, i);  // horizontal
 	// }
 
-	for (int i = 0; i < swidth; i = i + (swidth / n)) {
+  for (int i = 0; i < swidth; i = i + (swidth / n)) {
 		G_line(i, 0, i, sheight); // vertical
 		G_line(0, i, swidth, i);  // horizontal
 	}
