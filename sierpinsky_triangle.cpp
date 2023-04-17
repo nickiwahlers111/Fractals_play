@@ -28,6 +28,7 @@ void babies(double a[], double b[], double c[], double m1[], double m2[], double
   midpoint(a, c, m3);
   G_rgb(0, 0, 0);
   G_triangle(m1[0], m1[1], m2[0], m2[1], m3[0], m3[1]);
+  // G_wait_key();
 }
 
 void sierpinsky(double a[], double b[], double c[], int depth)
@@ -69,14 +70,13 @@ int main()
   // c[0] = 10;
   // c[1] = 390;
 
-  // TODO: calculate c[] to make equilateral triangle
   double mid[2];
   mid[0] = a[0] + 0.5 * (b[0] - a[0]);
   mid[1] = a[1] + 0.5 * (b[1] - a[1]);
-  double f = sqrt(3) / 6;
+  double f = sqrt(3) / 2;
 
-  c[0] = mid[0] - (b[1] - a[1]);
-  c[1] = mid[1] + (b[0] - a[0]);
+  c[0] = mid[0] - f * (b[1] - a[1]);
+  c[1] = mid[1] + f * (b[0] - a[0]);
 
   G_triangle(a[0], a[1], b[0], b[1], c[0], c[1]);
 
